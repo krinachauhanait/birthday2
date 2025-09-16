@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday QR Code</title>
+  <style>
+    body {
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      min-height: 100vh;
+      background: #fae2ec;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 { color: #ff3399; margin-bottom: 20px; }
+    #qrcode {
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    p { margin-top: 15px; font-size: 14px; color: #444; }
+    a { color: #ff3399; word-break: break-all; }
+    button {
+      margin-top: 25px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ff3399;
+      color: white;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background: #e02784;
+    }
+  </style>
+</head>
+<body id="capture">
+  <h1>Scan to Open Your Birthday Surprise!!🎂</h1>
+  <div id="qrcode"></div>
+  <p>Or tap: <a id="link" href="#" target="_blank" rel="noopener">loading…</a></p>
+
+  <button id="downloadBtn">📥</button>
+
+  <!-- QR Code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- html2canvas library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  <script>
+    // 👉 Point to a different page so the QR is unique
+    const birthdayPageURL = new URL('birthday2.html', window.location.href).href;
+
+    document.getElementById('link').textContent = birthdayPageURL;
+    document.getElementById('link').href = birthdayPageURL;
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: birthdayPageURL,
+      width: 220, height: 220,
+      colorDark: "#000000", colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Download the whole page as an image
+    document.getElementById("downloadBtn").addEventListener("click", function() {
+      html2canvas(document.getElementById("capture")).then(canvas => {
+        let link = document.createElement("a");
+        link.download = "birthday-qr-page.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎉 Happy Birthday Celebration 🎂</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base */
+      body {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.5;
+        background: linear-gradient(135deg, #fff0f6 0%, #ffe6ef 100%);
+        color: #3a1f2d;
+      }
+
+      /* Navigation */
+      .navbar {
+        background: rgba(255, 240, 246, 0.95);
+      }
+      .nav-logo {
+        color: #c2185b; /* royal bold pink */
+      }
+      .nav-link {
+        color: #3a1f2d;
+      }
+      .nav-link:hover {
+        color: #e91e63;
+      }
+      .nav-link::after {
+        background: linear-gradient(90deg, #c2185b, #e91e63);
+      }
+      .nav-toggle span {
+        background: #3a1f2d;
+      }
+
+      /* Hero */
+      .gallery-section,
+      .wishes-section,
+      .hero {
+        background: linear-gradient(135deg, #fff0f6, #ffe6ef);
+      }
+      .hero-content {
+        color: #c2185b;
+      }
+      .cta-button {
+        background: linear-gradient(45deg, #c2185b, #e91e63);
+        color: white;
+      }
+      .cta-button:hover {
+        background: linear-gradient(45deg, #e91e63, #ff4081);
+        box-shadow: 0 6px 20px rgba(194, 24, 91, 0.5);
+      }
+
+      /* Section Titles */
+      .section-title {
+        color: #c2185b;
+      }
+
+      /* Slideshow indicators */
+      .indicator.active {
+        background: #e91e63;
+      }
+
+      /* Music Player */
+      .vinyl-center {
+        background: #c2185b;
+      }
+      .progress {
+        background: linear-gradient(90deg, #c2185b, #ff4081);
+      }
+      .control-btn {
+        background: linear-gradient(45deg, #c2185b, #e91e63);
+      }
+      .playlist-item.active {
+        background: linear-gradient(
+          90deg,
+          rgba(194, 24, 91, 0.2),
+          rgba(233, 30, 99, 0.2)
+        );
+        border-left: 4px solid #c2185b;
+      }
+
+      /* Wishes Section */
+      .wishes-card h2 {
+        color: #c2185b;
+      }
+      .wish-text {
+        color: #3a1f2d;
+      }
+
+      /* Footer */
+      .footer {
+        background: #c2185b;
+        color: white;
+      }
+      .footer-links a {
+        color: #ffe0ec;
+      }
+      .footer-links a:hover {
+        color: #ffffff;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #c2185b, #e91e63);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(45deg, #a51148, #c2185b);
+      }
+    </style>
+  </head>
+  <body
+    style="background-image: url('/Pink\ Purple\ Star\ Happy\ Birthday.png')"
+  >
+    <!-- Animated Background Elements -->
+    <div class="background-animation">
+      <div class="floating-balloons">
+        <div class="balloon balloon-1">🎈</div>
+        <div class="balloon balloon-2">🎈</div>
+        <div class="balloon balloon-3">🎈</div>
+        <div class="balloon balloon-4">🎈</div>
+        <div class="balloon balloon-5">🎈</div>
+      </div>
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">🎂 Birthday Bash</div>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title animate-bounce">Happy Birthday Mummy!🎉</h1>
+        <p class="hero-subtitle">Let's celebrate this special day together!</p>
+        <div class="birthday-candles">
+          <div class="candle">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="wax"></div>
+          </div>
+          <div class="candle">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="wax"></div>
+          </div>
+          <div class="candle">
+            <div class="flame"></div>
+            <div class="wick"></div>
+            <div class="wax"></div>
+          </div>
+        </div>
+        <button class="cta-button" id="celebrateBtn">Scroll Down! 🎊</button>
+      </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <h2 class="section-title">📸 Memory Gallery</h2>
+
+        <!-- Slideshow View Only -->
+        <div class="gallery-slideshow" id="gallerySlideshow">
+          <div class="slideshow-container">
+            <div class="slide active">
+              <img src="reception.jpg" alt="Birthday celebration" />
+            </div>
+            <div class="slide">
+              <img src="childhood.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="birthday3.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="annualfunction.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="diu.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="saputara.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="dalhousie.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="dalhousie3.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="lake.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="makeup.JPG" alt="Birthday cake" />
+            </div>
+            <div class="slide">
+              <img src="diwali.jpg" alt="Friends celebrating" />
+            </div>
+            <div class="slide">
+              <img src="birthdaynani.jpg" alt="Friends celebrating" />
+            </div>
+          </div>
+          <button class="slide-btn prev" id="prevSlideBtn">❮</button>
+          <button class="slide-btn next" id="nextSlideBtn">❯</button>
+          <div class="slide-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+            <span class="indicator" data-slide="5"></span>
+            <span class="indicator" data-slide="6"></span>
+            <span class="indicator" data-slide="7"></span>
+            <span class="indicator" data-slide="8"></span>
+            <span class="indicator" data-slide="9"></span>
+            <span class="indicator" data-slide="10"></span>
+            <span class="indicator" data-slide="11"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Birthday Wishes Section -->
+    <section id="wishes" class="wishes-section">
+      <div class="wishes-card">
+        <h2 class="section-title">💌 Birthday Wishes</h2>
+        <p class="wish-text">
+          Happy Birthday, Mom 💖 Thank you for your endless love and care.
+          You make life brighter just by being you. Wishing you all the
+          happiness in the world today and always. Grateful for all the hard
+          work you do at home that keeps everything running so beautifully.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2024 Birthday Celebration Website. Made with ❤️ for special
+          moments!
+        </p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#gallery">Gallery</a>
+          <!-- <a href="#game">Game</a> -->
+          <!-- <a href="#countdown">Countdown</a> -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
